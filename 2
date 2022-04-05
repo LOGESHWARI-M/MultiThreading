@@ -1,0 +1,28 @@
+class SingleThread extends Thread{
+public void run(){
+Thread t3 = new Thread();
+for(int i=0;i<5;i++){
+try{
+Thread.sleep(3000);
+}catch(Exception e){
+}
+System.out.println(i);
+}
+}
+}
+class Th{
+public static void main(String args[]){
+SingleThread s1= new SingleThread();
+Thread t1 = new Thread(s1);
+Thread t2 = new Thread(s1);
+Thread t4= new Thread("IT CSE");
+t4.start();
+t2.start();
+t1.setName("Priya");
+System.out.println(t4.getName());
+System.out.println(t1.getPriority());
+t1.setPriority(1);
+System.out.println("new Priority "+t1.getPriority());
+System.out.println(t1.isAlive());
+}
+}
